@@ -1,20 +1,19 @@
 cask "otd-bt" do
   version "0.0.0"
-  sha256 ":no-check"
+  sha256 :no_check
 
-  url "https://github.com/yangyaofei/homebrew-tap/releases/download/v#{version}/otd-bt-#{version}.zip",
-      verified: "github.com/yangyaofei/homebrew-tap/"
+  url "https://github.com/yangyaofei/homebrew-tap/releases/download/v#{version}/otd-bt-#{version}.zip"
   name "OpenTabletDriver BT"
   desc "OpenTabletDriver fork with Wacom Bluetooth (CTL-4100WL/6100WL) macOS support + PenAssist plugin"
   homepage "https://github.com/yangyaofei/homebrew-tap"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "OpenTabletDriver-BT.app"
   artifact "PenAssist.dll",
            target: "~/Library/Application Support/OpenTabletDriver/Plugins/PenAssist/PenAssist.dll"
 
-  quit "io.github.yangyaofei.otd-bt"
+  uninstall quit: "io.github.yangyaofei.otd-bt"
 
   caveats <<~EOS
     首次运行需在 系统设置 → 隐私与权限 中授权：

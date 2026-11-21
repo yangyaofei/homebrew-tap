@@ -4,8 +4,7 @@ cask "cdproxy-desktop" do
   version "0.9.0"
   sha256 "1621fe070f1f5fb594f4198332a604aa1a8421161627777797cbed8bc74790ec"
 
-  url "https://github.com/yangyaofei/cdproxy/releases/download/v#{version}/cdproxy-desktop_#{version}_darwin_#{arch}.zip",
-      verified: "github.com/yangyaofei/cdproxy/"
+  url "https://github.com/yangyaofei/cdproxy/releases/download/v#{version}/cdproxy-desktop_#{version}_darwin_#{arch}.zip"
   name "cdproxy"
   desc "Shared Chrome keeper and session-isolated CDP proxy desktop app"
   homepage "https://github.com/yangyaofei/cdproxy"
@@ -16,11 +15,11 @@ cask "cdproxy-desktop" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "cdproxy-desktop.app"
 
-  quit "com.yangyaofei.cdproxy.desktop"
+  uninstall quit: "com.yangyaofei.cdproxy.desktop"
 
   caveats <<~EOS
     cdproxy-desktop is signed with a stable self-signed certificate (not Apple-notarized).
