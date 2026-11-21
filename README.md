@@ -1,29 +1,42 @@
-# homebrew-otd
+# yangyaofei/homebrew-tap
 
-OpenTabletDriver BT（macOS Wacom 蓝牙支持 fork）+ PenAssist 插件的 CI/CD 与 brew tap。
+Personal Homebrew tap for [`cdproxy`](https://github.com/yangyaofei/cdproxy), [`Denpa Jack`](https://github.com/yangyaofei/denpa-jack), and OpenTabletDriver BT.
 
-## 安装
+## Usage
 
 ```bash
-brew tap yangyaofei/otd
-brew install --cask otd-bt
+brew tap yangyaofei/tap
 ```
 
-升级：`brew upgrade --cask otd-bt`（签名身份稳定，升级后无需重新授权）
+### Formulas (CLI)
 
-## 结构
+| Package | Description | Install |
+|---|---|---|
+| [`cdproxy`](https://github.com/yangyaofei/cdproxy) | Shared Chrome keeper & session-isolated CDP proxy CLI (macOS / Linux) | `brew install cdproxy` |
 
-- `scripts/build-app.sh` —— 构建（本地/CI 共用）：clone fork+插件 → HidSharp 补丁 → 自包含发布 → rcodesign 签名 → 单 zip（app+插件）
-- `.github/workflows/release.yml` —— 推 `v*` tag 或手动触发 → 构建 → Release → 自动回写 cask 版本
-- `Casks/otd-bt.rb` —— cask 公式（app + 插件 dll 一步装齐）
-- `certs/`（gitignored）—— 10 年自签证书；CI 用 secrets `OTD_BT_P12_B64` / `OTD_BT_P12_PW`
+### Casks (macOS Desktop Apps)
 
-## 首次授权
+| Package | Description | Install |
+|---|---|---|
+| [`cdproxy-desktop`](https://github.com/yangyaofei/cdproxy) | cdproxy Wails v3 desktop app with tray menu & bundled `agent-browser` (Apple Silicon) | `brew install --cask cdproxy-desktop` |
+| [`denpa-jack`](https://github.com/yangyaofei/denpa-jack) | Push-to-talk voice dictation for macOS: ASR → dictionary/LLM polish → AX/Cmd+V (Apple Silicon) | `brew install --cask denpa-jack` |
+| `otd-bt` | OpenTabletDriver fork with Wacom Bluetooth (CTL-4100WL/6100WL) support + PenAssist plugin | `brew install --cask otd-bt` |
 
-辅助功能、输入监控（系统设置 → 隐私与权限）。之后跨版本不再弹。
+## Upgrading
 
-## 依赖的上游
+```bash
+brew upgrade cdproxy
+brew upgrade --cask cdproxy-desktop
+brew upgrade --cask denpa-jack
+brew upgrade --cask otd-bt
+```
 
-- OTD fork：`yangyaofei/OpenTabletDriver` 分支 `pr4672-bluetooth-macos`（基于 PR#4672）
-- 插件：`yangyaofei/PenAssist`
-- HidSharp 补丁：随 fork 的 `patches/` 携带，待上游 `HIDSharpCore` 合并后此步骤自动失效
+Desktop apps (`cdproxy-desktop`, `denpa-jack`, `otd-bt`) use stable self-signed certificates, so upgrades preserve existing macOS TCC permissions (Microphone / Accessibility / Input Monitoring).
+
+## First-Launch Gatekeeper Note
+
+Self-signed apps downloaded outside the Mac App Store may show a Gatekeeper warning on first open. Allow under *System Settings → Privacy & Security → Open Anyway*, or run:
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/<App Name>.app"
+```
