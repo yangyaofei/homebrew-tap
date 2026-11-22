@@ -6,7 +6,7 @@ cask "denpa-jack" do
 
   url "https://github.com/yangyaofei/denpa-jack/releases/download/v#{version}/Denpa.Jack_#{version}_#{arch}.dmg"
   name "Denpa Jack"
-  desc "Push-to-talk voice dictation for macOS: ASR, dictionary/LLM polish, AX/Cmd+V delivery"
+  desc "Push-to-talk voice dictation: ASR, dictionary/LLM polish, AX/Cmd+V delivery"
   homepage "https://github.com/yangyaofei/denpa-jack"
 
   livecheck do
@@ -21,6 +21,8 @@ cask "denpa-jack" do
 
   uninstall quit: "io.github.yangyaofei.denpajack"
 
+  zap trash: "~/Library/Application Support/io.github.yangyaofei.denpajack"
+
   caveats <<~EOS
     Denpa Jack is signed with a stable self-signed certificate (not Apple-notarized).
     If Gatekeeper blocks first launch, allow it in System Settings → Privacy & Security,
@@ -30,8 +32,4 @@ cask "denpa-jack" do
     Grant Microphone and Accessibility permissions on first run (Screen Recording is
     optional, for screenshot correction context). Upgrades preserve permissions.
   EOS
-
-  zap trash: [
-    "~/Library/Application Support/io.github.yangyaofei.denpajack",
-  ]
 end

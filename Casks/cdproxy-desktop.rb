@@ -21,6 +21,8 @@ cask "cdproxy-desktop" do
 
   uninstall quit: "com.yangyaofei.cdproxy.desktop"
 
+  zap trash: "~/agent-browser/proxy"
+
   caveats <<~EOS
     cdproxy-desktop is signed with a stable self-signed certificate (not Apple-notarized).
     If Gatekeeper blocks first launch, allow it in System Settings → Privacy & Security,
@@ -30,8 +32,4 @@ cask "cdproxy-desktop" do
     Do not run cdproxy-desktop and the CLI daemon (`cdproxy serve`) at the same time
     on the same default ports (9224 / 9225).
   EOS
-
-  zap trash: [
-    "~/agent-browser/proxy",
-  ]
 end
