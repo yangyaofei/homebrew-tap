@@ -19,9 +19,18 @@ cask "denpa-jack" do
 
   app "Denpa Jack.app"
 
-  uninstall quit: "io.github.yangyaofei.denpajack"
+  uninstall quit:      "io.github.yangyaofei.denpajack",
+            launchctl: "io.github.yangyaofei.denpajack"
 
-  zap trash: "~/Library/Application Support/io.github.yangyaofei.denpajack"
+  zap trash: [
+    "~/Library/Application Support/io.github.yangyaofei.denpajack",
+    "~/Library/Caches/io.github.yangyaofei.denpajack",
+    "~/Library/HTTPStorages/io.github.yangyaofei.denpajack",
+    "~/Library/LaunchAgents/io.github.yangyaofei.denpajack.plist",
+    "~/Library/Preferences/io.github.yangyaofei.denpajack.plist",
+    "~/Library/Saved Application State/io.github.yangyaofei.denpajack.savedState",
+    "~/Library/WebKit/io.github.yangyaofei.denpajack",
+  ]
 
   caveats <<~EOS
     Denpa Jack is signed with a stable self-signed certificate (not Apple-notarized).
