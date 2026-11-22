@@ -21,7 +21,7 @@ cask "cdproxy" do
 
   uninstall quit: "com.yangyaofei.cdproxy.desktop"
 
-  zap trash: "~/agent-browser/proxy"
+  zap trash: "~/.cdproxy"
 
   caveats <<~EOS
     cdproxy is signed with a stable self-signed certificate (not Apple-notarized).
