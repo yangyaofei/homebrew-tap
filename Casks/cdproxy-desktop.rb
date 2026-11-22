@@ -1,8 +1,8 @@
 cask "cdproxy-desktop" do
   arch arm: "arm64"
 
-  version "0.9.0"
-  sha256 "1621fe070f1f5fb594f4198332a604aa1a8421161627777797cbed8bc74790ec"
+  version "0.10.0"
+  sha256 "5b36af7e55f3bce7f145407e815c43e5f21dea5375992ddbb74613da791dfeea"
 
   url "https://github.com/yangyaofei/cdproxy/releases/download/v#{version}/cdproxy-desktop_#{version}_darwin_#{arch}.zip"
   name "cdproxy"

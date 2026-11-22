@@ -5,23 +5,23 @@ class Cdproxy < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/yangyaofei/cdproxy/releases/download/v0.9.0/cdproxy_0.9.0_darwin_arm64.tar.gz"
-      sha256 "d8f7d8037422580deba3077d3fb187cfd32cea7b1827d5b6e1e304f63a5c3376"
+      url "https://github.com/yangyaofei/cdproxy/releases/download/v0.10.0/cdproxy_0.10.0_darwin_arm64.tar.gz"
+      sha256 "53d03a02a2ae63f7c69f14d2bc16fabb5cfa7d7b545de20db3bdfb39568614b1"
     end
     on_intel do
-      url "https://github.com/yangyaofei/cdproxy/releases/download/v0.9.0/cdproxy_0.9.0_darwin_amd64.tar.gz"
-      sha256 "ecebca6dce133dd00364162bebd7d9266aea89fdd367123f9cf5b73babe8a6fd"
+      url "https://github.com/yangyaofei/cdproxy/releases/download/v0.10.0/cdproxy_0.10.0_darwin_amd64.tar.gz"
+      sha256 "f46652bca5f77630f364af221f93eed2025a73f6ff856b28d82f77425aacaa84"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/yangyaofei/cdproxy/releases/download/v0.9.0/cdproxy_0.9.0_linux_arm64.tar.gz"
-      sha256 "7ed160665453344c6e3c6ec19371c8185a5f7ea91ad83f877d2dba21cb2a6c7b"
+      url "https://github.com/yangyaofei/cdproxy/releases/download/v0.10.0/cdproxy_0.10.0_linux_arm64.tar.gz"
+      sha256 "d853440463330ebf6524b9444e6722ce7a4fdffc3365cf222b636a0ac872b83f"
     end
     on_intel do
-      url "https://github.com/yangyaofei/cdproxy/releases/download/v0.9.0/cdproxy_0.9.0_linux_amd64.tar.gz"
-      sha256 "d224ec636733b70342f29e4e4074515ba6922c8932fd915aec4586e9e82c84ba"
+      url "https://github.com/yangyaofei/cdproxy/releases/download/v0.10.0/cdproxy_0.10.0_linux_amd64.tar.gz"
+      sha256 "3bd18b120501da928cb56648d80fedbef84089e40c3332809eba109618b121ed"
     end
   end
 
